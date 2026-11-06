@@ -1,0 +1,408 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana's Birthday 🍒</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+ box-sizing: border-box;
+}
+
+html {
+ scroll-behavior: smooth;
+ width: 100%;
+}
+
+body {
+ margin: 0;
+ width: 100%;
+ background: #fff4e7;
+ color: #8d2937;
+ font-family: 'Nunito', sans-serif;
+ text-align: center;
+ overflow-x: hidden;
+}
+
+header {
+ padding: 16px;
+ background: #e94c64;
+ color: white;
+ font-weight: 900;
+ letter-spacing: 3px;
+}
+
+section {
+ padding: 65px 20px;
+ min-height: 90vh;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+h1, h2 {
+ font-family: 'DM Serif Display', serif;
+}
+
+h1 {
+ font-size: clamp(42px, 8vw, 75px);
+ color: #c92e48;
+}
+
+h2 {
+ font-size: 35px;
+}
+
+p {
+ font-size: 17px;
+ line-height: 1.8;
+}
+
+.hero {
+ background: #ffdce3;
+ border-bottom: 5px dashed #e94c64;
+}
+
+.sticker {
+ font-size: 60px;
+ animation: wiggle 2s infinite;
+}
+
+@keyframes wiggle {
+ 0%,100% {transform: rotate(-8deg);}
+ 50% {transform: rotate(8deg);}
+}
+
+.card {
+ width: 100%;
+ max-width: 650px;
+ margin: 25px auto;
+ background: #fffaf1;
+ border: 3px solid #e94c64;
+ border-radius: 25px;
+ padding: 30px;
+ box-shadow: 7px 7px 0 #f4b3bb;
+ overflow-wrap: break-word;
+}
+
+button {
+ background: #e94c64;
+ color: white;
+ border: 2px solid #9e293c;
+ padding: 15px 28px;
+ border-radius: 30px;
+ font-size: 16px;
+ font-weight: 900;
+ cursor: pointer;
+ margin: 12px;
+ transition: .3s;
+}
+
+button:hover {
+ transform: rotate(-3deg) scale(1.08);
+ background: #bd2e47;
+}
+
+.hidden {
+ display: none;
+}
+
+.gift {
+ font-size: 110px;
+ cursor: pointer;
+ transition: .4s;
+}
+
+.gift:hover {
+ transform: scale(1.2) rotate(10deg);
+}
+
+.candle {
+ font-size: 35px;
+ cursor: pointer;
+ margin: 7px;
+ display: inline-block;
+}
+
+.candle.off {
+ filter: grayscale(1);
+ opacity: .4;
+}
+
+footer {
+ background: #e94c64;
+ color: white;
+ padding: 30px;
+}
+
+#confetti {
+ position: fixed;
+ inset: 0;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+ z-index: 100;
+}
+
+/* 📱 MOBILE DESIGN */
+@media screen and (max-width: 600px) {
+
+ header {
+  padding: 14px 8px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+ }
+
+ section {
+  min-height: 85vh;
+  padding: 45px 16px;
+ }
+
+ h1 {
+  font-size: clamp(38px, 11vw, 54px);
+  line-height: 1.15;
+  margin: 15px 0;
+ }
+
+ h2 {
+  font-size: 27px;
+  line-height: 1.3;
+ }
+
+ h3 {
+  font-size: 18px;
+ }
+
+ p {
+  font-size: 15px;
+  line-height: 1.7;
+ }
+
+ .sticker {
+  font-size: 48px;
+ }
+
+ .card {
+  width: 100%;
+  padding: 22px 16px;
+  margin: 18px auto;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0 #f4b3bb;
+ }
+
+ button {
+  padding: 13px 20px;
+  font-size: 14px;
+  margin: 10px 4px;
+  max-width: 100%;
+ }
+
+ .gift {
+  font-size: 85px;
+ }
+
+ #letter p {
+  font-size: 14px;
+  line-height: 1.8;
+ }
+
+ .candle {
+  font-size: 29px;
+  margin: 5px;
+ }
+
+ footer {
+  padding: 25px 12px;
+  font-size: 14px;
+ }
+
+}
+
+/* პატარა ტელეფონები */
+@media screen and (max-width: 380px) {
+
+ h1 {
+  font-size: 36px;
+ }
+
+ h2 {
+  font-size: 24px;
+ }
+
+ .card {
+  padding: 18px 12px;
+ }
+
+ .candle {
+  font-size: 25px;
+  margin: 3px;
+ }
+
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<header>🍒 ANA'S BIRTHDAY 🍒</header>
+
+<!-- WELCOME -->
+<section class="hero" id="home">
+ <div class="sticker">🍒🎀🍒</div>
+ <p>✦ A SPECIAL DAY FOR A SPECIAL GIRL ✦</p>
+ <h1>Happy Birthday,<br>Ana!</h1>
+ <h2>You're the sweetest for me! ❤️</h2>
+ <p>A little website made with lots of love, just for you.</p>
+ <button onclick="celebrate()">LET'S PARTY! ♡</button>
+ <p>Scroll down for your surprises ↓</p>
+</section>
+
+<!-- GIFT -->
+<section id="gift">
+ <h2>Something for you... 💌</h2>
+
+ <div class="card">
+  <p>You've got a little present!</p>
+
+  <div class="gift" onclick="openGift()">🎁</div>
+
+  <p>Tap the gift to unwrap it!</p>
+
+  <div id="letter" class="hidden">
+   <h2>Dear Ana, 🍒</h2>
+
+   <p>
+    გილოოოცავ გილოცაავ და გილოცაავ!!!!!!!!! მინდა მთელი ცხოვრება ბედნიერი და ხალისიანი გხედავდე, რომ ყოველთვის ისევ და ისევ შეგეძლოს ჩემი გაცინება. იყავი ყოველთვის ასეთი განსაკუთრებული! 💕 მიყვარხაარ და ძმურად იყავი
+   </p>
+
+   <p>
+    Never stop being YOU.
+    You deserve all the beautiful things in this world!
+   </p>
+
+   <div style="font-size:45px">💌🌷🍒</div>
+  </div>
+ </div>
+</section>
+
+<!-- CAKE -->
+<section id="cake" style="background:#ffdce3">
+ <h2>Make a Wish, Birthday Girl! 🕯️</h2>
+
+ <div class="card">
+  <p>Close your eyes, make a wish and blow out the candles!</p>
+
+  <div style="font-size:100px">🎂</div>
+
+  <div id="candles">
+   <span class="candle" onclick="blow(this)">🕯️</span>
+   <span class="candle" onclick="blow(this)">🕯️</span>
+   <span class="candle" onclick="blow(this)">🕯️</span>
+   <span class="candle" onclick="blow(this)">🕯️</span>
+   <span class="candle" onclick="blow(this)">🕯️</span>
+  </div>
+
+  <h3 id="cakeMessage">Tap every candle! ❤️</h3>
+ </div>
+</section>
+
+<!-- FINAL -->
+<section>
+ <div class="sticker">💌🍒💗</div>
+
+ <h1>One Last Thing...</h1>
+
+ <div class="card">
+  <h2>You are special to me!</h2>
+
+  <p>
+   May this new chapter be your prettiest one yet.
+   More laughter, more love, more adventures
+   and more reasons to celebrate!
+  </p>
+
+  <h1>LOVE YOU! ❤️</h1>
+
+  <button onclick="celebrate()">ONE MORE PARTY! 🎉</button>
+ </div>
+</section>
+
+<footer>
+ Made with love, just for Ana 🍒<br>
+ ♡ HAPPY BIRTHDAY ♡
+</footer>
+
+<script>
+
+function openGift() {
+ document.getElementById("letter").classList.remove("hidden");
+ celebrate();
+}
+
+let remaining = 5;
+
+function blow(candle) {
+ if(candle.classList.contains("off")) return;
+
+ candle.classList.add("off");
+ candle.innerText = "💨";
+ remaining--;
+
+ if(remaining === 0) {
+  document.getElementById("cakeMessage").innerText =
+   "ALL YOUR WISHES COME TRUE! 🎉❤️";
+  celebrate();
+ }
+}
+
+function celebrate() {
+ const canvas = document.getElementById("confetti");
+ const ctx = canvas.getContext("2d");
+
+ canvas.width = window.innerWidth;
+ canvas.height = window.innerHeight;
+
+ let pieces = [];
+
+ for(let i=0;i<150;i++) {
+  pieces.push({
+   x: Math.random()*canvas.width,
+   y: -Math.random()*canvas.height,
+   size: Math.random()*9+4,
+   speed: Math.random()*4+2,
+   color: ["#e94c64","#ffb6c1","#ffdb70","#a8d8b9"][Math.floor(Math.random()*4)]
+  });
+ }
+
+ let frame = 0;
+
+ function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  pieces.forEach(p => {
+   ctx.fillStyle = p.color;
+   ctx.fillRect(p.x,p.y,p.size,p.size);
+   p.y += p.speed;
+   p.x += Math.sin(p.y/20);
+  });
+
+  frame++;
+
+  if(frame < 150) requestAnimationFrame(draw);
+  else ctx.clearRect(0,0,canvas.width,canvas.height);
+ }
+
+ draw();
+}
+
+</script>
+</body>
+</html>
